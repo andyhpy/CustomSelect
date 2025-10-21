@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>example</title>
+    <script src="../js/customSelect.js"></script>
+    <link rel="stylesheet" href="../css/customSelect.css">
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/tippy.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css" />
+    <script>
+        tippy.setDefaultProps({
+            theme: 'light-border',
+            interactive: true,
+            interactiveDebounce: 15,
+            followCursor: "initial",
+            delay: [150, 200]
+        });
+    </script>
+</head>
+
+<body>
+    <div id="select" style="height: 30px; width: 300px; font-weight: bold;">
+        <select data-init="console.log(`init`)">
+            <option value="" data-click="console.log(`first`)">请选择城市</option>
+            <option value="beijing" data-click="console.log(`Beijing click`)" data-color="red" data-background-color="green" data-tippy-content="北京很好">北京</option>
+            <option value="shanghai" data-color="green" data-background-color="blue">上海</option>
+            <option value="guangzhou" data-color="blue">广州</option>
+            <option value="shenzhen" data-color="yellow">深圳</option>
+            <option value="hangzhou" data-color="purple">杭州</option>
+            <option value="chengdu" data-color="orange" data-tippy-content="成都很好">成都</option>
+            <option value="wuhan" data-color="pink">武汉</option>
+            <option value="xian" data-color="brown">西安</option>
+            <option value="nanjing" data-color="gray">南京</option>
+        </select>
+    </div>
+    <button id="lookValue">查看值</button>
+    <script>
+        select = new SelectCustom('#select');
+        document.querySelector('#lookValue').addEventListener('click', function () {
+            alert(select.getValue());
+        });
+    </script>
+    <script>
+        tippy('[data-tippy-content]');
+    </script>
+</body>
+
+</html>
