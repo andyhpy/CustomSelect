@@ -1,6 +1,7 @@
 function executeCodeWithEval(code) {
+    if (!code) return null;
     try {
-        return eval(code);
+        return (new Function(code))();
     } catch (error) {
         console.error('执行代码时出错:', error);
         return null;
@@ -39,7 +40,7 @@ class SelectCustom {
                                 </div>`;
         var selectText = div.querySelector(".selected-text");
         if (arr[0].style.length) {
-            selectText.style = arr[0].style;
+            selectText.styleText = arr[0].styleText;
         }
         if (arr[0].value !== undefined) {
             selectText.dataset.value = arr[0].value;
@@ -58,6 +59,9 @@ class SelectCustom {
         arr.forEach(option => {
             var optionDiv = document.createElement('div');
             optionDiv.classList.add('option');
+            if (option.style.length) {
+                optionDiv.styleText = option.styleText;
+            }
             if (option.value !== undefined) {
                 optionDiv.dataset.value = option.value;
             }
@@ -72,9 +76,6 @@ class SelectCustom {
             }
             if (option.click !== undefined) {
                 optionDiv.dataset.click = option.click;
-            }
-            if (option.style.length) {
-                optionDiv.style = option.style;
             }
             optionDiv.innerHTML = option.html;
             OptionsContainer.appendChild(optionDiv);
