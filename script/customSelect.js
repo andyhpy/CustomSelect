@@ -11,9 +11,9 @@ class SelectCustom {
     getValue() {
         return this.select.querySelector(".selected-text").dataset.value;
     }
-    constructor(selectCssChoose) {
+    constructor(selectItem) {
         var arr = [];
-        var outDiv = document.querySelector(selectCssChoose);
+        var outDiv = selectItem;
         this.select = outDiv;
         var select = outDiv.querySelector('select');
         var options = select.querySelectorAll('option');

@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>example</title>
-    <script src="../js/customSelect.js"></script>
-    <link rel="stylesheet" href="../css/customSelect.css">
-
+    <title>test</title>
+    <script src="../customSelect.js"></script>
+    <link rel="stylesheet" href="../customSelect.css">
+    
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/tippy.css" />
@@ -39,7 +39,7 @@
     </div>
     <button id="lookValue">查看值</button>
     <script>
-        select = new SelectCustom('#select');
+        select = new SelectCustom(document.querySelector('#select'));
         document.querySelector('#lookValue').addEventListener('click', function () {
             alert(select.getValue());
         });
